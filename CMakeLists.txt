@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.26)
 project(BibbleOpcodes CXX)
 
-add_library(BibbleOpcodes INTERFACE)
+source_group(TREE ${PROJECT_SOURCE_DIR} FILES src/opcodes.cpp include/Bibble/opcodes.h)
 
-target_include_directories(BibbleOpcodes INTERFACE
+add_library(BibbleOpcodes STATIC src/opcodes.cpp include/Bibble/opcodes.h)
+
+target_include_directories(BibbleOpcodes PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
