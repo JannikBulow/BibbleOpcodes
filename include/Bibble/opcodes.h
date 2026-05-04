@@ -3658,7 +3658,12 @@ namespace bibble::opcodes {
         // Including opcode. 0 means variable length, which needs a bit more context to determine size.
         size_t GetFixedLength(Opcode opcode, const PrefixState& prefixState);
 
+        bool IsTerminator(Opcode opcode);
+        bool IsConditionalBranch(Opcode opcode);
         bool IsBranch(Opcode opcode);
+        bool IsCall(Opcode opcode);
+        bool IsAsyncCall(Opcode opcode);
+        bool IsFloatOp(Opcode opcode);
     }
 }
 

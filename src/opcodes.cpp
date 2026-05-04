@@ -49,7 +49,8 @@ namespace bibble::opcodes::opcodeutils {
                 break;
             case LOAD_IMM:
                 size += GetRegisterSize(prefixState.wideOperand0);
-                size += GetImmediateSize(prefixState.wideOperand1, prefixState.hugeImmediate, prefixState.giganticImmediate);
+                size += GetImmediateSize(prefixState.wideOperand1, prefixState.hugeImmediate,
+                                         prefixState.giganticImmediate);
                 break;
             case ADD:
             case SUB:
@@ -124,10 +125,12 @@ namespace bibble::opcodes::opcodeutils {
             case INC:
             case DEC:
                 size += GetRegisterSize(prefixState.wideOperand0);
-                size += GetImmediateSize(prefixState.wideOperand1, prefixState.hugeImmediate, prefixState.giganticImmediate);
+                size += GetImmediateSize(prefixState.wideOperand1, prefixState.hugeImmediate,
+                                         prefixState.giganticImmediate);
                 break;
             case JMP:
-                size += GetImmediateSize(prefixState.wideOperand0, prefixState.hugeImmediate, prefixState.giganticImmediate);
+                size += GetImmediateSize(prefixState.wideOperand0, prefixState.hugeImmediate,
+                                         prefixState.giganticImmediate);
                 break;
             case JEQ:
             case JNE:
@@ -136,7 +139,8 @@ namespace bibble::opcodes::opcodeutils {
             case JGT:
             case JGE:
                 size += GetRegisterSize(prefixState.wideOperand0);
-                size += GetImmediateSize(prefixState.wideOperand1, prefixState.hugeImmediate, prefixState.giganticImmediate);
+                size += GetImmediateSize(prefixState.wideOperand1, prefixState.hugeImmediate,
+                                         prefixState.giganticImmediate);
                 break;
             case RESERVED_FOR_SWITCH_0:
             case RESERVED_FOR_SWITCH_1:
@@ -292,7 +296,90 @@ namespace bibble::opcodes::opcodeutils {
         return size;
     }
 
+    bool IsTerminator(Opcode opcode) {
+        switch (opcode) {
+            case JMP:
+            case TAIL_CALL:
+            case TAIL_CALL_DYN:
+            case RETURN:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    bool IsConditionalBranch(Opcode opcode) {
+        switch (opcode) {
+            case JEQ:
+            case JNE:
+            case JLT:
+            case JGT:
+            case JLE:
+            case JGE:
+                return true;
+            default:
+                return false;
+        }
+    }
+
     bool IsBranch(Opcode opcode) {
-        return opcode >= JMP && opcode <= JGE;
+        return IsConditionalBranch(opcode) || opcode == JMP;
+    }
+
+    bool IsCall(Opcode opcode) {
+        switch (opcode) {
+            case CALL:
+            case TAIL_CALL:
+            case CALLA:
+            case CALLAP:
+            case CALLARP:
+            case CALL_DYN:
+            case TAIL_CALL_DYN:
+            case CALLA_DYN:
+            case CALLAP_DYN:
+            case CALLARP_DYN:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    bool IsAsyncCall(Opcode opcode) {
+        switch (opcode) {
+            case CALLA:
+            case CALLAP:
+            case CALLARP:
+            case CALLA_DYN:
+            case CALLAP_DYN:
+            case CALLARP_DYN:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    bool IsFloatOp(Opcode opcode) {
+        switch (opcode) {
+            case FADD:
+            case FSUB:
+            case FMUL:
+            case FDIV:
+            case FNEG:
+            case FABS:
+            case FCMP:
+            case I2F:
+            case U2F:
+            case I2D:
+            case U2D:
+            case F2I:
+            case F2U:
+            case D2I:
+            case D2U:
+            case F2D:
+            case D2F:
+                return true;
+            default:
+                return false;
+        }
     }
 }
