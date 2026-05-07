@@ -2653,7 +2653,7 @@ namespace bibble::opcodes {
                 WIDE_OPERAND1
                 WIDE_OPERAND2
             LAYOUT:
-                [PREFIX*] [DISPATCHMETHOD] [DST] [OBJ] [FIELD]
+                [PREFIX*] [DISPATCHMETHOD] [DST] [OBJ] [METHOD]
 
         ERRORS:
             - If the object is null, a NULL_REFERENCE error is raised.
