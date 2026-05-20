@@ -2589,7 +2589,7 @@ namespace bibble::opcodes {
             OBJ:
                 TYPE: register
                 SIZE:
-                    WIDE_OPERAND1: 16 bits
+                    WIDE_OPERAND0: 16 bits
                     DEFAULT: 8 bits
 
             FIELD:
