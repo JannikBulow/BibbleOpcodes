@@ -2480,7 +2480,7 @@ namespace bibble::opcodes {
                 [PREFIX*] [ISKIND] [DST] [OBJ] [KIND]
 
         NOTES:
-            - Produces 0 on truth for easier usage with JEQ.
+            - Produces 0 when the kind matches, nonzero otherwise. This allows for easier usage with JEQ/JNE.
 
         ERRORS:
             - If the object is null, a NULL_REFERENCE error is raised.
@@ -2527,7 +2527,7 @@ namespace bibble::opcodes {
                 [PREFIX*] [INSTANCEOF] [DST] [OBJ] [CLASS]
 
         NOTES:
-            - Produces 0 on truth for easier usage with JEQ.
+            - Produces 0 when the object is of the class, nonzero otherwise. This allows for easier usage with JEQ/JNE.
             - If the object is null, the check fails immediately, resulting in a nonzero value.
             - If the object kind is not instance, the check fails immediately, resulting in a nonzero value.
         */
