@@ -781,13 +781,13 @@ namespace bibble::opcodes {
         SHR = 0x1E,
 
         /*
-        INSTRUCTION: SHL
+        INSTRUCTION: SAR
 
         PURPOSE:
             Perform arithmetic shifting to the right on a value using another value as the shift amount.
 
         SEMANTICS:
-            REG[DST] = REG[LHS] << REG[RHS]
+            REG[DST] = REG[LHS] >>> REG[RHS]
 
         OPERANDS:
             DST:
@@ -815,7 +815,7 @@ namespace bibble::opcodes {
                 WIDE_OPERAND2
 
             LAYOUT:
-                [PREFIX*] [SHL] [DST] [LHS] [RHS]
+                [PREFIX*] [SAR] [DST] [LHS] [RHS]
 
         NOTES:
             - There is no "left" counterpart to this instruction as it would do the exact same.
