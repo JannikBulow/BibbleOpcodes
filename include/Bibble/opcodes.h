@@ -1079,7 +1079,7 @@ namespace bibble::opcodes {
         TR8 = 0x2C,
 
         /*
-        INSTRUCTION: TR8
+        INSTRUCTION: TR16
 
         PURPOSE:
             Truncate a 64-bit unsigned integer value down to 16 bits.
@@ -1108,7 +1108,7 @@ namespace bibble::opcodes {
             LAYOUT:
                 [PREFIX*] [TR16] [DST] [VALUE]
         */
-        TR16 = 0x2E,
+        TR16 = 0x2D,
 
         /*
         INSTRUCTION: TR32
@@ -1140,7 +1140,7 @@ namespace bibble::opcodes {
             LAYOUT:
                 [PREFIX*] [TR32] [DST] [VALUE]
         */
-        TR32 = 0x30,
+        TR32 = 0x2E,
 
         /*
         INSTRUCTION: SEX8
@@ -1179,7 +1179,7 @@ namespace bibble::opcodes {
         NOTES:
             - If you read 'SEX' and think of anything other than Sign EXtend, you need to lock in.
         */
-        SEX8 = 0x32,
+        SEX8 = 0x2F,
 
         /*
         INSTRUCTION: SEX16
@@ -1218,7 +1218,7 @@ namespace bibble::opcodes {
         NOTES:
             - If you read 'SEX' and think of anything other than Sign EXtend, you need to lock in.
         */
-        SEX16 = 0x33,
+        SEX16 = 0x30,
 
         /*
         INSTRUCTION: SEX32
@@ -1257,7 +1257,7 @@ namespace bibble::opcodes {
         NOTES:
             - If you read 'SEX' and think of anything other than Sign EXtend, you need to lock in.
         */
-        SEX32 = 0x34,
+        SEX32 = 0x31,
 
         /*
         INSTRUCTION: ZEX8
@@ -1289,7 +1289,7 @@ namespace bibble::opcodes {
             LAYOUT:
                 [PREFIX*] [ZEX8] [DST] [VALUE]
         */
-        ZEX8 = 0x35,
+        ZEX8 = 0x32,
 
         /*
         INSTRUCTION: ZEX16
@@ -1321,7 +1321,7 @@ namespace bibble::opcodes {
             LAYOUT:
                 [PREFIX*] [ZEX16] [DST] [VALUE]
         */
-        ZEX16 = 0x36,
+        ZEX16 = 0x33,
 
         /*
         INSTRUCTION: ZEX32
@@ -1353,7 +1353,7 @@ namespace bibble::opcodes {
             LAYOUT:
                 [PREFIX*] [ZEX32] [DST] [VALUE]
         */
-        ZEX32 = 0x37,
+        ZEX32 = 0x34,
 
         /*
         INSTRUCTION: I2F
@@ -1389,7 +1389,7 @@ namespace bibble::opcodes {
             - Conversion may lose precision.
             - Values outside the exact representable range of IEEE 754 binary32 are rounded.
         */
-        I2F = 0x38,
+        I2F = 0x35,
 
         /*
         INSTRUCTION: U2F
@@ -1425,7 +1425,7 @@ namespace bibble::opcodes {
             - Conversion may lose precision.
             - Values outside the exact representable range of IEEE 754 binary32 are rounded.
         */
-        U2F = 0x39,
+        U2F = 0x36,
 
         /*
         INSTRUCTION: I2D
@@ -1461,7 +1461,7 @@ namespace bibble::opcodes {
             - Conversion may lose precision.
             - Values outside the exact representable range of IEEE 754 binary64 are rounded.
         */
-        I2D = 0x3A,
+        I2D = 0x37,
 
         /*
         INSTRUCTION: U2D
@@ -1497,7 +1497,7 @@ namespace bibble::opcodes {
             - Conversion may lose precision.
             - Values outside the exact representable range of IEEE 754 binary64 are rounded.
         */
-        U2D = 0x3B,
+        U2D = 0x38,
 
         /*
         INSTRUCTION: F2I
@@ -1538,7 +1538,7 @@ namespace bibble::opcodes {
             - NaN is converted to 0.
             - +0.0 and -0.0 both convert to 0.
         */
-        F2I = 0x3C,
+        F2I = 0x39,
 
         /*
         INSTRUCTION: F2U
@@ -1579,7 +1579,7 @@ namespace bibble::opcodes {
             - NaN is converted to 0.
             - +0.0 and -0.0 both convert to 0.
         */
-        F2U = 0x3D,
+        F2U = 0x3A,
 
         /*
         INSTRUCTION: D2I
@@ -1620,7 +1620,7 @@ namespace bibble::opcodes {
             - NaN is converted to 0.
             - +0.0 and -0.0 both convert to 0.
         */
-        D2I = 0x3E,
+        D2I = 0x3B,
 
         /*
         INSTRUCTION: D2I
@@ -1661,7 +1661,7 @@ namespace bibble::opcodes {
             - NaN is converted to 0.
             - +0.0 and -0.0 both convert to 0.
         */
-        D2U = 0x3F,
+        D2U = 0x3C,
 
         /*
         INSTRUCTION: F2D
@@ -1697,7 +1697,7 @@ namespace bibble::opcodes {
             - Everything is preserved.
             - Overflow not possible.
         */
-        F2D = 0x40,
+        F2D = 0x3D,
 
         /*
         INSTRUCTION: D2F
@@ -1734,7 +1734,7 @@ namespace bibble::opcodes {
             - Overflow is converted to +-Infinity.
             - NaN is preserved.
         */
-        D2F = 0x41,
+        D2F = 0x3E,
 
         /*
         INSTRUCTION: ICMP
@@ -1778,7 +1778,7 @@ namespace bibble::opcodes {
             LAYOUT:
                 [PREFIX*] [ICMP] [DST] [LHS] [RHS]
         */
-        ICMP = 0x42,
+        ICMP = 0x40,
 
         /*
         INSTRUCTION: UCMP
@@ -1822,7 +1822,7 @@ namespace bibble::opcodes {
             LAYOUT:
                 [PREFIX*] [UCMP] [DST] [LHS] [RHS]
         */
-        UCMP = 0x43,
+        UCMP = 0x41,
 
         /*
         INSTRUCTION: FCMP
@@ -1866,7 +1866,7 @@ namespace bibble::opcodes {
             LAYOUT:
                 [PREFIX*] [FCMP] [DST] [LHS] [RHS]
         */
-        FCMP = 0x44,
+        FCMP = 0x42,
 
         /*
         INSTRUCTION: STRCMP
@@ -1932,7 +1932,7 @@ namespace bibble::opcodes {
             LAYOUT:
                 [PREFIX*] [STRCMP] [DST] [LHS] [RHS]
         */
-        STRCMP = 0x45,
+        STRCMP = 0x43,
 
         /*
         INSTRUCTION: INC
@@ -1968,7 +1968,7 @@ namespace bibble::opcodes {
             LAYOUT:
                 [PREFIX*] [INC] [VALUE] [IMM]
         */
-        INC = 0x46,
+        INC = 0x44,
 
         /*
         INSTRUCTION: DEC
@@ -2004,7 +2004,7 @@ namespace bibble::opcodes {
             LAYOUT:
                 [PREFIX*] [DEC] [VALUE] [IMM]
         */
-        DEC = 0x47,
+        DEC = 0x45,
 
         /*
         INSTRUCTION: JMP
