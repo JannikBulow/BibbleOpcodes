@@ -2919,7 +2919,7 @@ namespace bibble::opcodes {
             let size = REG[OBJ].length
             let arr = internals.AllocateObject(size)
             arr.length = size
-            memcpy(arr.elements, size, REG[OBJ].data)
+            memcpy(arr.elements, REG[OBJ].data, size)
             REG[DST] = arr
 
         OPERANDS:
