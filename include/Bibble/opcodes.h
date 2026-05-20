@@ -2905,7 +2905,7 @@ namespace bibble::opcodes {
         ERRORS:
             - If the object is null, a NULL_REFERENCE error is raised.
             - If the object kind is not string, an INVALID_OBJECT_KIND error is raised.
-            - If the index is greater than the length of the array, an INDEX_OUT_OF_BOUNDS error is raised.
+            - If the index is greater than the length of the string, an INDEX_OUT_OF_BOUNDS error is raised.
         */
         STRGET = 0x6F,
 
