@@ -2812,7 +2812,7 @@ namespace bibble::opcodes {
                 WIDE_OPERAND1
                 WIDE_OPERAND2
             LAYOUT:
-                [PREFIX*] [ARRAYSET] [DST] [OBJ] [IDX]
+                [PREFIX*] [ARRAYSET] [OBJ] [IDX] [VALUE]
 
         NOTES:
             - The index is treated as an unsigned value.
