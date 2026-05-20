@@ -63,8 +63,8 @@ namespace bibble::opcodes {
 
         ENCODING:
             PREFIXES:
-                WIDE_OPERAND0: dst width control
-                WIDE_OPERAND0: src width control
+                WIDE_OPERAND0
+                WIDE_OPERAND1
 
             LAYOUT:
                 [PREFIX*] [MOV] [DST] [SRC]
