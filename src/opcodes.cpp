@@ -49,8 +49,10 @@ namespace bibble::opcodes::opcodeutils {
                 break;
             case LOAD_IMM:
                 size += GetRegisterSize(prefixState.wideOperand0);
-                size += GetImmediateSize(prefixState.wideOperand1, prefixState.hugeImmediate,
-                                         prefixState.giganticImmediate);
+                size += GetImmediateSize(prefixState.wideOperand1, prefixState.hugeImmediate, prefixState.giganticImmediate);
+                break;
+            case LOAD_NULL:
+                size += GetRegisterSize(prefixState.wideOperand0);
                 break;
             case ADD:
             case SUB:

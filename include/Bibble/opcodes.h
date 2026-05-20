@@ -214,6 +214,31 @@ namespace bibble::opcodes {
         LOAD_IMM = 0x05,
 
         /*
+         INSTRUCTION: LOAD_ZERO
+
+         PURPOSE:
+             Load a null object reference into a register.
+
+         SEMANTICS:
+             REG[DST] = null
+
+         OPERANDS:
+             DST:
+                 TYPE: register
+                 SIZE:
+                     WIDE_OPERAND0: 16 bits
+                     DEFAULT: 8 bits
+
+         ENCODING:
+             PREFIXES:
+                 WIDE_OPERAND0
+
+             LAYOUT:
+                 [PREFIX*] [LOAD_IMM] [DST] [IMM]
+         */
+        LOAD_NULL = 0x06,
+
+        /*
         INSTRUCTION: ADD
 
         PURPOSE:
