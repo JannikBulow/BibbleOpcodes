@@ -1623,13 +1623,13 @@ namespace bibble::opcodes {
         D2I = 0x3B,
 
         /*
-        INSTRUCTION: D2I
+        INSTRUCTION: D2U
 
         PURPOSE:
             Convert a 64-bit float to a 64-bit unsigned integer.
 
         SEMANTICS:
-            REG[DST] = IEEE754_binary64_to_s64(REG[VALUE])
+            REG[DST] = IEEE754_binary64_to_u64(REG[VALUE])
 
         OPERANDS:
             DST:
@@ -1650,7 +1650,7 @@ namespace bibble::opcodes {
                 WIDE_OPERAND1
 
             LAYOUT:
-                [PREFIX*] [F2I] [DST] [VALUE]
+                [PREFIX*] [D2U] [DST] [VALUE]
 
         NOTES:
             - Fractions are discarded (round toward zero).
