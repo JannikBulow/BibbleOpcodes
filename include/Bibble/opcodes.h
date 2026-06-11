@@ -3,6 +3,7 @@
 #ifndef BIBBLEOPCODES_OPCODES_H
 #define BIBBLEOPCODES_OPCODES_H 1
 
+#include <cstddef>
 #include <cstdint>
 
 namespace bibble::opcodes {
