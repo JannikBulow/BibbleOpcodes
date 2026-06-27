@@ -5,6 +5,7 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <string>
 
 namespace bibble::opcodes {
     using Prefix = uint8_t;
@@ -3680,6 +3681,9 @@ namespace bibble::opcodes {
             bool hugeImmediate = false;
             bool giganticImmediate = false;
         };
+
+        std::string GetOpcodeName(Opcode opcode);
+        std::string GetOpcodeName(Opcode opcode, const PrefixState& prefix);
 
         // Including opcode. 0 means variable length, which needs a bit more context to determine size.
         size_t GetFixedLength(Opcode opcode, const PrefixState& prefixState);

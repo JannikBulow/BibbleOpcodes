@@ -3,6 +3,223 @@
 #include "Bibble/opcodes.h"
 
 namespace bibble::opcodes::opcodeutils {
+    std::string GetOpcodeName(Opcode opcode) {
+        switch (static_cast<Opcodes>(opcode)) {
+            case NOP:
+                return "nop";
+            case MOV:
+                return "mov";
+            case MOV_RANGE:
+                return "mov_range";
+            case SWAP:
+                return "swap";
+            case LOAD_CONST:
+                return "load_const";
+            case LOAD_IMM:
+                return "load_imm";
+            case LOAD_NULL:
+                return "load_null";
+            case ADD:
+                return "add";
+            case SUB:
+                return "sub";
+            case MUL:
+                return "mul";
+            case SDIV:
+                return "sdiv";
+            case UDIV:
+                return "udiv";
+            case SMOD:
+                return "smod";
+            case UMOD:
+                return "umod";
+            case NEG:
+                return "neg";
+            case ABS:
+                return "abs";
+            case AND:
+                return "and";
+            case OR:
+                return "or";
+            case XOR:
+                return "xor";
+            case NOT:
+                return "not";
+            case SHL:
+                return "shl";
+            case SHR:
+                return "shr";
+            case SAR:
+                return "sar";
+            case FADD:
+                return "fadd";
+            case FSUB:
+                return "fsub";
+            case FMUL:
+                return "fmul";
+            case FDIV:
+                return "fdiv";
+            case FNEG:
+                return "fneg";
+            case FABS:
+                return "fabs";
+            case TR8:
+                return "tr8";
+            case TR16:
+                return "tr16";
+            case TR32:
+                return "tr32";
+            case SEX8:
+                return "sex8";
+            case SEX16:
+                return "sex16";
+            case SEX32:
+                return "sex32";
+            case ZEX8:
+                return "zex8";
+            case ZEX16:
+                return "zex16";
+            case ZEX32:
+                return "zex32";
+            case I2F:
+                return "i2f";
+            case U2F:
+                return "u2f";
+            case I2D:
+                return "i2d";
+            case U2D:
+                return "u2d";
+            case F2I:
+                return "f2i";
+            case F2U:
+                return "f2u";
+            case D2I:
+                return "d2i";
+            case D2U:
+                return "d2u";
+            case F2D:
+                return "f2d";
+            case D2F:
+                return "d2f";
+            case ICMP:
+                return "icmp";
+            case UCMP:
+                return "ucmp";
+            case FCMP:
+                return "fcmp";
+            case STRCMP:
+                return "strcmp";
+            case INC:
+                return "inc";
+            case DEC:
+                return "dec";
+            case JMP:
+                return "jmp";
+            case JEQ:
+                return "jeq";
+            case JNE:
+                return "jne";
+            case JLT:
+                return "jlt";
+            case JLE:
+                return "jle";
+            case JGT:
+                return "jgt";
+            case JGE:
+                return "jge";
+            case RESERVED_FOR_SWITCH_0:
+                return "reserved_for_switch_0";
+            case RESERVED_FOR_SWITCH_1:
+                return "reserved_for_switch_1";
+            case RESERVED_FOR_SWITCH_2:
+                return "reserved_for_switch_2";
+            case RESERVED_FOR_SWITCH_3:
+                return "reserved_for_switch_3";
+            case NEWINSTANCE:
+                return "newinstance";
+            case NEWARRAY:
+                return "newarray";
+            case NEWSTRING:
+                return "newstring";
+            case NEWFUTURE:
+                return "newfuture";
+            case OBJKIND:
+                return "objkind";
+            case ISKIND:
+                return "iskind";
+            case INSTANCEOF:
+                return "instanceof";
+            case GETFIELD:
+                return "getfield";
+            case SETFIELD:
+                return "setfield";
+            case DISPATCHMETHOD:
+                return "dispatchmethod";
+            case GETCLASS:
+                return "getclass";
+            case ARRAYLENGTH:
+                return "arraylength";
+            case ARRAYGET:
+                return "arrayget";
+            case ARRAYSET:
+                return "arrayset";
+            case STRLENGTH:
+                return "strlength";
+            case STRGET:
+                return "strget";
+            case STR2ARRAY:
+                return "str2array";
+            case RESOLVE:
+                return "resolve";
+            case CANCEL:
+                return "cancel";
+            case ISFUTUREREADY:
+                return "isfutureready";
+            case POLL:
+                return "poll";
+            case AWAIT:
+                return "await";
+            case CALL:
+                return "call";
+            case TAIL_CALL:
+                return "tail_call";
+            case CALLA:
+                return "calla";
+            case CALLAP:
+                return "callap";
+            case CALLARP:
+                return "callarp";
+            case CALL_DYN:
+                return "call_dyn";
+            case TAIL_CALL_DYN:
+                return "tail_call_dyn";
+            case CALLA_DYN:
+                return "calla_dyn";
+            case CALLAP_DYN:
+                return "callap_dyn";
+            case CALLARP_DYN:
+                return "callarp_dyn";
+            case RETURN:
+                return "return";
+            case YIELD:
+                return "yield";
+        }
+
+        __builtin_unreachable(); //TODO: replace with compiler independent symbol
+    }
+
+    std::string GetOpcodeName(Opcode opcode, const PrefixState& prefix) {
+        std::string name;
+        if (prefix.wideOperand0) name += "wide_operand0 ";
+        if (prefix.wideOperand1) name += "wide_operand1 ";
+        if (prefix.wideOperand2) name += "wide_operand2 ";
+        if (prefix.wideOperand3) name += "wide_operand3 ";
+        if (prefix.hugeImmediate) name += "huge_immediate ";
+        if (prefix.giganticImmediate) name += "gigantic_immediate ";
+        name += GetOpcodeName(opcode);
+        return name;
+    }
+
     static size_t GetRegisterSize(bool wide) {
         return wide ? 2 : 1;
     }
