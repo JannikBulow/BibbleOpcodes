@@ -10,3 +10,8 @@ target_include_directories(BibbleOpcodes PUBLIC
 )
 
 target_compile_features(BibbleOpcodes PUBLIC cxx_std_20)
+
+install(
+    DIRECTORY include/
+    DESTINATION include
+)
