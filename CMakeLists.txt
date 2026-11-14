@@ -5,8 +5,7 @@ include(CMakePackageConfigHelpers)
 
 source_group(TREE ${PROJECT_SOURCE_DIR} FILES src/opcodes.cpp include/Bibble/opcodes.h)
 
-add_library(BibbleOpcodes STATIC src/opcodes.cpp include/Bibble/opcodes.h
-        include/Bibble/_compatability.h)
+add_library(BibbleOpcodes STATIC src/opcodes.cpp include/Bibble/opcodes.h include/Bibble/_compatability.h)
 
 target_include_directories(BibbleOpcodes PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>/include
