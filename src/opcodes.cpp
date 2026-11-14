@@ -1,6 +1,7 @@
 // Copyright 2026 JesusTouchMe
 
 #include "Bibble/opcodes.h"
+#include "Bibble/_compatability.h"
 
 namespace bibble::opcodes::opcodeutils {
     std::string GetOpcodeName(Opcode opcode) {
@@ -205,7 +206,7 @@ namespace bibble::opcodes::opcodeutils {
                 return "yield";
         }
 
-        __builtin_unreachable(); //TODO: replace with compiler independent symbol
+        BIBBLE_UNREACHABLE();
     }
 
     std::string GetOpcodeName(Opcode opcode, const PrefixState& prefix) {
